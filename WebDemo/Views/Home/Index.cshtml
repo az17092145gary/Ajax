@@ -1,8 +1,69 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@section Styles{
+<style>
+    .display-4{
+    background-color:aqua
+    
+    }
+</style>
+}
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+    <ul id="myUi"></ul>
+
+@section Scripts{
+    <script>
+    $(".display-4").text("你好")
+
+        const emp = {
+            "employees": [
+                { "name": "Tom", "workYears": 3, "salary": 35000 },
+                { "name": "Jack", "workYears": 5, "salary": 40000 },
+                { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ]
+        };
+        //for(var item of emp.employees)
+        //{
+        //    console.log(item.name);
+        //    console.log(item.salary);
+        //    console.log(item.workYears);
+        //}
+        
+        //const thUi = document.querySelector('#myUi')
+        //for(let i =0;i<emp.employees.length;i++)
+        //{
+        //    const{name,salary,workYears}=emp.employees[i]
+
+        //    //console.log(emp.employees[i].name);
+        //    //console.log(emp.employees[i].salary);
+        //    //console.log(emp.employees[i].workYears);
+        //    const s = document.createElement('li');
+        //    const ss = document.createTextNode(name);
+        //    s.appendChild(ss);
+        //    thUi.appendChild(s);
+        //}
+        //$.each(emp.employees, function (index, value)
+        //{
+        //    console.log(value.name);
+        //});
+
+      const datas=  emp.employees.map((value)=>{
+            const { name, salary ,workYears}=value;
+            return (`<li>${name}-${salary}</li>`);
+        })
+        const thUi = document.querySelector('#myUi');
+        //陣列可以用join組合("")來區隔
+        thUi.innerHTML=datas.join("");
+        
+
+
+
+
+
+    </script>
+}
